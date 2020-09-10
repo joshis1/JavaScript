@@ -1,0 +1,19 @@
+{
+  "name": "NodePrj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ServerInit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "formidable": "^1.2.1",
+    "fs": "0.0.1-security",
+    "mime": "^1.4.0",
+    "resolve-path": "^1.3.3"
+  }
+}
