@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css">
+    <title> Weather App</title>
+</head>
+
+<body>
+    <header h1> Welcome to weather app</header>
+    <div class="main">
+        <div id="search">
+            <label for="city">City Name</label>
+            <input type="text" id="city">
+            <button type="button">Show Weather!</button>
+            <div id="local-weather">
+                <label for="current_city">Current City</label>
+                <label for="current_temperature">temperature</label> <span>C</span> 
+            </div>
+
+        </div>
+        <div id="load">Loading...</div>
+        <div id="weather">
+            <h1 id="weatherCity">City Name </h1>
+            <div class="degree-section">
+                <div class="weather-icon"><img src="icons/unknown.png" /></div>
+                <h2 class="weatherTemperature">34</h2>
+                <span>C</span>
+            </div>
+        </div>
+    </div>
+    <script src="skycons.js"></script>
+    <script src="init.js"></script>
+    <script src="weather-data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
