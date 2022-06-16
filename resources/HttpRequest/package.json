@@ -1,0 +1,15 @@
+{
+  "name": "httprequest",
+  "version": "1.0.0",
+  "description": "http://api.weatherstack.com/current?access_key=0dbb56595cc50b0e91dc4cdc89644a49&query=37.8267,-122.4233",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
