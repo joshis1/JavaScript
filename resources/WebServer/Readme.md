@@ -45,3 +45,29 @@
 ###   "start": "node src/app.js"
 ### test this using npm run <script name>
 ### npm run start
+
+## Add git remote 
+### heroku git:remote -a jshreyas-weather-application
+
+## Push your changes to heroku
+###  git push heroku master
+
+## testing
+### https://jshreyas-weather-application.herokuapp.com/
+### 
+
+## Adding dev script in package.json 
+### "dev": "nodemon src/app.js -e js,hbs",
+
+## Uninstall nodemon globally using -g flag.
+### npm uninstall -g nodemon
+
+## Install nodemon only for development purpse.
+### npm install nodemon@1.2.0 --save-dev
+
+### Dev dependencies are only installed in the local machines and are not installed in the 
+### production environment.
+
+## Testing the dev environment.
+###  npm run dev
+
