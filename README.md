@@ -35,6 +35,6 @@
 ## Check your connection with github
 ### ssh -T git@github.com 
 
-##  Pushing the code to the main branch.
-### git push -u origin main 
+##  Pushing the code to the master branch.
+### git push -u origin master 
 
