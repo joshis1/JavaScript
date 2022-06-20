@@ -7,6 +7,10 @@ const express = require('express');
 
 const hbs = require('hbs');
 
+const geocode = require('./utils/geocode');
+
+const forecast = require('./utils/forecast');
+
 console.log(__dirname); // current directory name
 
 console.log(path.join(__dirname, '../public'));
@@ -14,6 +18,8 @@ console.log(path.join(__dirname, '../public'));
 console.log(__filename); // current file name.
 
 const app = express();
+
+const port = process.env.PORT || 3000;
 
 // Define paths for express config.
 
@@ -42,7 +48,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/help', (req, res) => {
-  res.render('help', { message: 'Help the network', author: 'Shreyas' });
+  res.render('help', { message: 'contact me', author: 'Shreyas' });
 
 });
 
@@ -58,12 +64,55 @@ app.get('/help', (req, res) => {
 //   res.send('<h1>About Page </h1>');
 // });
 
+//http://localhost:3000/weather?address=Brisbane
 app.get('/weather', (req, res) => {
-  res.send({
-    forecast: 'It is sunny',
-    location: 'Brisbane'
-  });
+  if (!req.query.address) {
+    return res.send({ error: 'Please provide the address' });
+  }
+  console.log(req.query);
+
+  geocode(req.query.address, (error, data) => {
+
+    if (error) {
+      // return and break the callback chaining.
+      return res.send( {error});
+    }
+    console.log(data);
+
+    // if the object is undefined then the destructuring will fail.
+    // {temperature, feelslike} = {} helps to destructure.
+    // = {} is a default value for the  parameter.
+    // this is the default function parameters.
+    forecast(data, (error, { temperature, feelslike } = {}) => {
+      if (error === undefined) {
+        //console.log('Data', temperature, feelslike);
+        res.send({
+          temperature,
+          feelslike,
+          address: req.query.address
+        });
+      }
+      else {
+        res.send({ error });
+        console.log('Error', error);
+      }
+    })
+  })
 });
+
+// http://localhost:3000/products?search=games&ratings=5
+app.get('/products', (req, res) => {
+  console.log(req.query); // { search: 'games', ratings: '5' }
+
+  if (!req.query.search) {
+    return res.send({ error: 'you must provide the search term' });
+  }
+
+  // cannot send headers after they are sent to the client.
+  // the above error means that we are sending the response more than once.
+  console.log(req.query.search);
+  res.send('Hitting products');
+})
 
 app.get('/help/*', (req, res) => {
   res.render('Pagenotfound', { title: '404', author: 'Shreyas', error: 'Help article not found' })
@@ -74,6 +123,6 @@ app.get('*', (req, res) => {
   res.render('Pagenotfound', { title: '404', author: 'Shreyas', error: 'My 404 Page' })
 })
 
-app.listen(3000, () => {
-  console.log('App is running at port 3000');
+app.listen(port, () => {
+  console.log('App is running at port %s', port);
 })
