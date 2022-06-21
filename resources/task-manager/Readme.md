@@ -64,7 +64,7 @@ npm i mongodb@3.1.10
 * U - Update
 * D - Delete
 
-# test just mongodb 
+# Test just mongodb 
 ```
  node mongodb.js
 ```
