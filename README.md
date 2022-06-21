@@ -29,28 +29,35 @@ git version 2.30.2.windows.1
 * Commit
 
 ## With git bash
-``` ls -a -l ~/.ssh 
+``` 
+ls -a -l ~/.ssh 
 ```
+
 * id_rsa  --> secret file
-* id_rsa.pub --> public file.
+* id_rsa.pub --> public file
 
 ## create ssh key pairs.
-``` ssh-keygen -t rsa -b 4096 -C "shreyasjoshi15@gmail.com" 
+``` 
+ssh-keygen -t rsa -b 4096 -C "shreyasjoshi15@gmail.com" 
 ```
 
 ## check whether the ssh agent is working or not.
-```eval "$(ssh-agent -s)" 
+```
+eval "$(ssh-agent -s)" 
 ```
 
 ## Verify and authenticate your ssh rsa id
-``` ssh-add -K ~/.ssh.id_rsa 
+``` 
+ssh-add -K ~/.ssh.id_rsa 
 ```
 
 ## Check your connection with github
-``` ssh -T git@github.com 
+``` 
+ssh -T git@github.com 
 ```
 
 ##  Pushing the code to the master branch.
-``` git push -u origin master 
+``` 
+git push -u origin master 
 ```
 
