@@ -64,7 +64,10 @@ npm i mongodb@3.1.10
 * U - Update
 * D - Delete
 
-
+# test just mongodb 
+```
+ node mongodb.js
+```
 
 
 ![Mongodb Client Studio 3T](Studio_3T_MongoDB.png?raw=true "3 T Studio Mongodb client tool - visualizer")
