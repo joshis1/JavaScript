@@ -121,7 +121,7 @@ const SystemSetup = () => {
         </AppBar>
 
         <TabPanel id="system-config-tab-panel" value={tabIndex} index={0}>
-          <SystemStatus  onSaveState={saveStateModalHandler} id="system-config" />
+          <SystemStatus  onSaveState={saveStateModalHandler} err={onErrorHandler} id="system-config" />
         </TabPanel>
         <TabPanel id="system-suburb-tab-panel" value={tabIndex} index={1}>
           <Address onSaveState={saveStateModalHandler} id="system-suburb" />
