@@ -39,7 +39,7 @@ export default function SystemStatus(SystemProps) {
                 variant="outlined"
                 size="small"
                 className={classes.text}
-                InputProps={{ inputProps: { maxLength: 48 } }}
+                InputProps={{ inputProps: { maxLength: 48, readOnly: true } }}
               />
             </Grid>
             <Grid item xs={3}>
@@ -55,7 +55,7 @@ export default function SystemStatus(SystemProps) {
                 type="Text"
                 size="small"
                 className={classes.text}
-                InputProps={{ inputProps: { maxLength: 48 } }}
+                InputProps={{ inputProps: { maxLength: 48, readOnly: true } }}
               />
             </Grid>
           </Grid>

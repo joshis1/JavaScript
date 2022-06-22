@@ -50,11 +50,13 @@ export default function Address(qosProps) {
                 <Select
                   id="system__qld__suburb"
                   name="system__qld__suburb"
-                  //value
                   onChange={onChangeHandler}
                   size="small"
                   variant="outlined"
+                  // default value fixes the warning Mui
+                  defaultValue=""
                 >
+                   <MenuItem id="qld-suburb-0" value={0}>Algester</MenuItem>
                   <MenuItem id="qld-suburb-0" value={0}></MenuItem>
                   <MenuItem id="qld-suburb-1" value={1}>Algester</MenuItem>
                   <MenuItem id="qld-suburb-2" value={2}>Calamvale</MenuItem>
@@ -70,6 +72,7 @@ export default function Address(qosProps) {
               <TextField
                 id=""
                 name="pincode"
+                type="number"
                 //value
                 onChange={onChangeHandler}
                 variant="outlined"

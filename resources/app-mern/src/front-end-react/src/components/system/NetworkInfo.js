@@ -39,7 +39,7 @@ export default function NetworkInfo(SystemProps) {
                 variant="outlined"
                 size="small"
                 className={classes.text}
-                InputProps={{ inputProps: { maxLength: 48 } }}
+                InputProps={{ inputProps: { maxLength: 48, readOnly: true } }}
               />
             </Grid>
           </Grid>

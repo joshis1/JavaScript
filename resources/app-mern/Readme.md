@@ -2,9 +2,18 @@
 
 This is just to practice a complete MERN application.
 
-## Give system status - Tab?
+## Front End  --- React related.
 
-## Store your suburb from QLD, Australia - Tab -- Locality?
+* Give system status - Tab?
+* Store your suburb from QLD, Australia - Tab -- Locality?
+* Get the IP Address - network Info?
 
-## Get the IP Address - network Info?
+
+### How to buid it to deploy i.e. static app?
+
+```
+npm run build
+```
+
+## Node App / Express --- Back End related
 
