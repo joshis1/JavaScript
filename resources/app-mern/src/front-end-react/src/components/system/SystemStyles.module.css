@@ -1,0 +1,122 @@
+.root {
+  height: 100vh;
+}
+
+.tabPanel {
+  background: #4d4d4d;
+}
+
+.tabPanel .tab {
+  text-transform: none;
+}
+
+.title {
+  font-weight: bold;
+  color: Black;
+  border: 1px solid white;
+  padding: 10px;
+  align-items: right;
+  background: #f2f2f2;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.labelTitle {
+  padding-bottom: 0.1rem;
+  padding-top: 1rem;
+  color: #808080;
+}
+
+.switch {
+  color: black;
+  display: flex;
+}
+
+.switch .disable {
+  background-color: #cccccc;
+}
+
+.switchButtonContainer {
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em;
+  margin-right: 1.5rem;
+}
+
+.switchButtonContainer button {
+  background: #91d7ea;
+}
+
+.formControlContainer {
+  margin-top: 1rem;
+}
+
+.formControlContainer .formControl {
+  flex: auto;
+  margin: 1rem;
+}
+
+.saveButtonContainer {
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em;
+  margin-top: 1rem;
+}
+
+.saveButtonContainer button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: right;
+  background: #f04c23;
+}
+
+.saveButtonContainer button:hover {
+  background: #f04c23;
+}
+
+.saveButtonContainer .buttonDisable {
+  background: #cccccc;
+}
+
+.addDeleteContainer {
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addDeleteContainer .operationButton {
+  background: #91d7ea;
+  margin: 0.5rem;
+}
+
+.text {
+  width: 200;
+}
+
+.smallText {
+  width: 100;
+}
+
+.gridContainer {
+  margin-left: 1rem;
+}
+
+.container {
+  margin-left: 2rem;
+}
+
+.formControl {
+  flex: auto;
+  margin: 1rem;
+}
+
+.formControl .ringerElements {
+  color: black;
+  margin-left: 1rem;
+}
+
+.ringerElements .ringerButton {
+  background: #91d7ea;
+}
