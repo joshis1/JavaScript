@@ -56,5 +56,6 @@ npm run build
 ## Most important.
 
 * Getting CORS issue - 
-* Fix - Add -  "proxy": "http://localhost:5000", in the package.json - 
-* Reference - https://create-react-app.dev/docs/proxying-api-requests-in-development/
+* Fix - Add -  res.setHeader('Access-Control-Allow-Origin', '*'); 
+* Reference - https://stackoverflow.com/questions/24897801/enable-access-control-allow-origin-for-multiple-domains-in-node-js
+
