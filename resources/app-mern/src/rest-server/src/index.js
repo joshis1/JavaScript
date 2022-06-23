@@ -7,6 +7,9 @@ const socketio = require('socket.io');
 
 const systemStatus = require('./blueprints/systemStatus');
 
+// getting room status here.
+const roomStatus = require('./blueprints/roomStatus');
+
 const app = express();
 
 const server = http.createServer(app);
@@ -20,6 +23,7 @@ io.on('connection', ()=> {
 });
 
 app.use('/systemStatus', systemStatus);
+app.use('/roomStatus', roomStatus);
 
 server.listen(port, ()=> {
     console.log(`server is running on the port = ${port}`);

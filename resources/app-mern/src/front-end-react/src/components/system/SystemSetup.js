@@ -7,6 +7,8 @@ import SystemStatus from "./SystemStatus";
 import Address from "./Address";
 import NetworkInfo from "./NetworkInfo";
 
+import RoomInfo from "./RoomInfo";  // going to use socket io here.
+
 import classes from "./SystemStyles.module.css";
 
 import AlertDialog from "../AlertDialog";
@@ -88,7 +90,7 @@ const SystemSetup = () => {
 
 
   // If failed to fetch the value then show this modal.
-  const onErrorHandler = (props) => {
+  const onErrorHandler = () => {
     setErrorDialog(true);
   }
 
@@ -117,6 +119,7 @@ const SystemSetup = () => {
             <Tab id="system-config-tab" className={classes.tab} label="System Information" {...a11yProps(0)} />
             <Tab id="system-suburb-tab" className={classes.tab} label="Address" {...a11yProps(1)} />
             <Tab id="system-network-tab" className={classes.tab} label="System Network Details" {...a11yProps(2)} />
+            <Tab id="system-room-info-tab" className={classes.tab} label="Room Information" {...a11yProps(3)} />
           </Tabs>
         </AppBar>
 
@@ -129,6 +132,10 @@ const SystemSetup = () => {
 
         <TabPanel id="system-network-tab-panel" value={tabIndex} index={2}>
           <NetworkInfo onSaveState={saveStateModalHandler} id="system-network-tab" />
+        </TabPanel>
+
+        <TabPanel id="system-room-info-tab-panel" value={tabIndex} index={3}>
+          <RoomInfo onSaveState={saveStateModalHandler} id="system-network-tab" />
         </TabPanel>
 
       </Box>

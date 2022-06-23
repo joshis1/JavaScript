@@ -6,7 +6,7 @@ import { TextField } from "@material-ui/core";
 import classes from "./SystemStyles.module.css";
 
 
-export default function NetworkInfo(SystemProps) {
+export default function NetworkInfo() {
 
   const onChangeHandler = (event) => {
 

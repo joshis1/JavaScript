@@ -10,17 +10,17 @@ import { Box } from "@material-ui/core";
 
 import classes from "./SystemStyles.module.css";
 
-export default function Address(qosProps) {
+export default function Address(addressProps) {
 
   const [saveState, setSaveState] = useState(false);
 
   const onChangeHandler = (event) => {
-    qosProps.onSaveState(true);
+    addressProps.onSaveState(true);
     setSaveState(true);
   };
 
   const onSubmitHandler = (event) => {
-    qosProps.onSaveState(false);
+    addressProps.onSaveState(false);
     setSaveState(false);
   };
 
