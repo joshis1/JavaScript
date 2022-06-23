@@ -5,10 +5,10 @@ const socketio = require('socket.io');
 
 // blue prints -- routers
 
-const systemStatus = require('./blueprints/systemStatus');
+const systemStatus = require('./routes/systemStatus');
 
 // getting room status here.
-const roomStatus = require('./blueprints/roomStatus');
+const roomStatus = require('./routes/roomStatus');
 
 const app = express();
 
@@ -22,8 +22,8 @@ io.on('connection', ()=> {
     console.log('Got connected WebServer')
 });
 
-app.use('/systemStatus', systemStatus);
-app.use('/roomStatus', roomStatus);
+app.use('/api/v1/systemStatus', systemStatus);
+app.use('/api/v1/roomStatus', roomStatus);
 
 server.listen(port, ()=> {
     console.log(`server is running on the port = ${port}`);

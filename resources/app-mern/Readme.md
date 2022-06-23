@@ -70,3 +70,17 @@ npm run build
 
 * Install ioredis driver for nodejs pub/sub.
 * npm i ioredis
+
+## Start the Redis 
+```
+sudo service redis-server start
+ ```
+
+ ## Install nodejs
+
+ ```
+sudo apt install -y build-essential git nodejs npm
+sudo npm i -g n
+sudo n 16
+sudo npm install -g yarn
+ ```
