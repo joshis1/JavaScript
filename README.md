@@ -61,3 +61,6 @@ ssh -T git@github.com
 git push -u origin master 
 ```
 
+# Protocols to follow - 
+* Always push the code using WSL - Ubuntu rather than gitbash or Power shell.
+
