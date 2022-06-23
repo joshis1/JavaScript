@@ -90,3 +90,41 @@ sudo npm install -g yarn
 * https://koalatea.io/python-redis-pubsub/ 
 * React js - https://medium.com/@isaac.hookom/auto-refresh-data-for-react-functional-components-5eda19f912d1 
   
+# Deploying
+* Install pm2 - open source process manager for node.js application. 
+* pm2 allows you to monitor and manage your application lifecycle in production.
+
+## Install PM2 
+* npm install -g pm2
+
+```
+pm2 --version
+```
+
+## For development 
+```
+pm2-dev 
+```
+
+## For the production
+```
+pm2 start --name <process_name> src/rest-server/src/index.js 
+```
+## monitoring metrics 
+```
+pm2 list
+```
+
+## Launching on System Startup
+```
+pm2 startup systemd
+
+sudo systemctl enable pm2-<username>
+```
+
+## My command
+```
+sudo pm2 start index.js 
+```
+
+Reference - https://betterstack.com/community/guides/scaling-nodejs/pm2-guide/
