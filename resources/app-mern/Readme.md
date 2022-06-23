@@ -84,3 +84,9 @@ sudo npm i -g n
 sudo n 16
 sudo npm install -g yarn
  ```
+
+# References
+* https://stackoverflow.com/questions/6192177/redis-pub-sub-with-reliability 
+* https://koalatea.io/python-redis-pubsub/ 
+* React js - https://medium.com/@isaac.hookom/auto-refresh-data-for-react-functional-components-5eda19f912d1 
+  
