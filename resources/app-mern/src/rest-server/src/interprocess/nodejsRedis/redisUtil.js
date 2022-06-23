@@ -9,6 +9,7 @@ let RedisUtil = class redisUtil {
         this.redis.publish(channelName, JSON.stringify(jsonData));
     }
     sub(channelName, callback) {
+        //console.log(channelName)
         this.redis.subscribe(channelName, (err, data) => {
             callback(err, data);
         });

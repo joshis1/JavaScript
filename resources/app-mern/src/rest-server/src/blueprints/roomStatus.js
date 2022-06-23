@@ -6,9 +6,12 @@ let redisUtil = require('../interprocess/nodejsRedis/redisUtil');
 let redisUtilSub = new redisUtil();
 let redisUtilPub = new redisUtil();
 
+
 let redisChannel = require('../interprocess/nodejsRedis/redisKeys.js');
 
-redisUtilSub.sub(redisChannel.RoomServiceToRoomBP, (err, count) => {
+let channelsTosubscribe = [redisChannel.RoomServiceToRoomBP, redisChannel.RoomHumideToRoomBP]
+
+redisUtilSub.sub(channelsTosubscribe , (err, count) => {
   if (err) {
     console.log('Got error = %s', err.message);
     return;
@@ -16,6 +19,7 @@ redisUtilSub.sub(redisChannel.RoomServiceToRoomBP, (err, count) => {
   console.log('subscribed to channels = %s', count);
 
 })
+
 
 // Important - after subscription here you will get the message.
 redisUtilSub.redis.on("message", (channel, message) => {
@@ -30,7 +34,7 @@ router.get('/', (req, res) => {
   // browser security is enabled that it does not allow to use cross domain data.
   console.log('Publishing the messsage');
   redisUtilPub.pub(redisChannel.RoomBPToRoomService, { 'get-room-temp': 0 });
-  redisUtilPub.pub(redisChannel.RoomBPToRoomService, { 'get-room-humid': 0 });
+  redisUtilPub.pub(redisChannel.RoomBPToRoomHumid, { 'get-room-humid': 0 });
   return res.sendStatus(200);
 })
 
