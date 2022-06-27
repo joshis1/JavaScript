@@ -6,3 +6,14 @@ body{
 body p {
    color: royalblue;
 }
+
+.container
+{
+    display: flex;
+    color:green;
+    flex-direction: column;
+}
+
+.send-location {
+    margin-top: 15px;
+}

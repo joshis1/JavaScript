@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css" >
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Chat-App</title>
 </head>
-<body>
 
+<body>
     <p>Welcome to Chat App</p>
-<script src="/socket.io/socket.io.js"></script>    
-<script src="/js/app.js"></script>
+
+    <!-- place holder for chat messages -->
+
+    <div id="messages"></div>
+    <div class="container">
+        <form id="message-form">
+
+            <label for="message">Message</label>
+            <div>
+                <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+            </div>
+            <input id='btn' type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="send-location">
+        <button id="send-location">Send-Location</button>
+    </div>
+
+    <!-- mustache - template --> >
+    <script id="message-template" type="text/html">
+        <div>
+            <p> {{message}} </p>
+        </div>
+    </script>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/js/app.js"></script>
 </body>
+
 </html>

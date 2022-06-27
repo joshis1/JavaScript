@@ -15,3 +15,7 @@ npm i socket.io@2.2.0
 ```
 <script src="/socket.io/socket.io.js"></script>    
 ```
+## Use the profanity of the message using bad-words npm module
+```
+npm i bad-words@3.0.0
+```
