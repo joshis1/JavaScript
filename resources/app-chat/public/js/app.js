@@ -11,16 +11,29 @@ const $locationButton = document.querySelector('#send-location');
 const $messages = document.querySelector('#messages');
 const messageTemplate = document.querySelector('#message-template').innerHTML
 
+const urlTemplate = document.querySelector('#url-template').innerHTML
+const $url = document.querySelector('#url');
+
+
+//Options
+ const {username, room} = Qs.parse(location.search, {ignoreQueryPrefix: true})
+
+console.log(username);
+console.log(room);
+
 socket = io(); // this will make a socket io connection to the server by emitting connection.
 
 socket.on('message', (msg) => {
     console.log(msg);
-    const html = Mustache.render(messageTemplate, {'message': msg});
+    const html = Mustache.render(messageTemplate, {'message': msg.text, 'createdAt': moment(msg.createdAt).format('h:mm:ss a')});
     $messages.insertAdjacentHTML('beforeend', html);
 });
 
-socket.on('sendLocation', (msg) => {
-    console.log(msg);
+
+socket.on('locationMessage', (url) => {
+    console.log(url);
+    const html = Mustache.render(urlTemplate, {'url': url.text, 'createdAt': moment(url.createdAt).format('h:mm a')} )
+    $url.insertAdjacentHTML('beforeend', html);
 })
 
 
@@ -69,3 +82,5 @@ $locationButton.addEventListener('click', (event) => {
     })
 });
 
+//sending the data to the server.
+socket.emit('join', {username, room});

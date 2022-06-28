@@ -19,3 +19,20 @@ npm i socket.io@2.2.0
 ```
 npm i bad-words@3.0.0
 ```
+
+## Frontend library 
+https://momentjs.com/
+
+### Query String in Frontend library 
+http://localhost:3000/chat.html?username=fsd&room=sd
+
+From web-browser console i.e. chrome
+
+```
+location.search
+```
+
+
+
+
+
