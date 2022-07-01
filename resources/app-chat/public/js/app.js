@@ -14,9 +14,46 @@ const messageTemplate = document.querySelector('#message-template').innerHTML
 const urlTemplate = document.querySelector('#url-template').innerHTML
 const $url = document.querySelector('#url');
 
+const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
+const $sidebar = document.querySelector('#sidebar');
+
+
+//const autoscroll to the bottom 
+
+const autoscroll = () =>
+{
+     const $newMessage = $messages.lastElementChild;
+
+     //console.log($newMessage);
+
+     //Height of the new Message 
+     const newMessageStyles = getComputedStyle($newMessage);
+     const newMessageMargin = parseInt(newMessageStyles.marginBottom);
+     const newMessageHeight = $newMessage.offsetHeight + newMessageMargin;
+
+     //console.log(newMessageHeight);
+
+     //Visible height 
+     const VisibleHeight = $messages.offsetHeight;
+
+     // Height of the message Container
+     const contentHeight = $messages.scrollHeight;
+
+     //How far I have scrolled?
+     const scrollOffset = $messages.scrollTop + VisibleHeight;
+
+     if( contentHeight - newMessageHeight <= scrollOffset)
+     {
+        $messages.scrollTop = $messages.scrollHeight;
+     }
+
+    //  The below line will always scroll 
+    //$messages.scrollTop = $messages.scrollHeight;
+}
+
 
 //Options
- const {username, room} = Qs.parse(location.search, {ignoreQueryPrefix: true})
+const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 console.log(username);
 console.log(room);
@@ -24,16 +61,28 @@ console.log(room);
 socket = io(); // this will make a socket io connection to the server by emitting connection.
 
 socket.on('message', (msg) => {
-    console.log(msg);
-    const html = Mustache.render(messageTemplate, {'message': msg.text, 'createdAt': moment(msg.createdAt).format('h:mm:ss a')});
+    //console.log('Inside message..')
+    //console.log(msg);
+    const html = Mustache.render(messageTemplate, { 'username': msg.username, 'message': msg.text, 'createdAt': moment(msg.createdAt).format('h:mm:ss a') });
     $messages.insertAdjacentHTML('beforeend', html);
+    autoscroll();
 });
 
 
 socket.on('locationMessage', (url) => {
-    console.log(url);
-    const html = Mustache.render(urlTemplate, {'url': url.text, 'createdAt': moment(url.createdAt).format('h:mm a')} )
+    //console.log('Inside Location URL..')
+    //console.log(url);
+    const html = Mustache.render(urlTemplate, { 'username': url.username, 'url': url.text, 'createdAt': moment(url.createdAt).format('h:mm a') })
     $url.insertAdjacentHTML('beforeend', html);
+    autoscroll();
+})
+
+socket.on('roomData', ({ room, users }) => {
+    console.log('getting room Data');
+    console.log(room);
+    console.log(users);
+    const html = Mustache.render(sidebarTemplate, { 'room': room, 'users': users });
+    $sidebar.innerHTML = html;
 })
 
 
@@ -60,8 +109,7 @@ $messageForm.addEventListener('submit', (event) => {
 $locationButton.addEventListener('click', (event) => {
     console.log('send location button clicked');
 
-    if(!navigator.geolocation)
-    {
+    if (!navigator.geolocation) {
         return alert('geolocation is not supported by browser');
     }
 
@@ -83,4 +131,10 @@ $locationButton.addEventListener('click', (event) => {
 });
 
 //sending the data to the server.
-socket.emit('join', {username, room});
+socket.emit('join', { username, room }, (err) => {
+    console.log(err);
+    if (err) {
+        alert(err);
+        location.href = '/';
+    }
+});
